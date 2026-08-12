@@ -1,0 +1,14 @@
+{
+  "name": "metarun",
+  "owner": {
+    "name": "MetaRun",
+    "url": "https://metarun.dev"
+  },
+  "plugins": [
+    {
+      "name": "metarun-skills",
+      "source": "./",
+      "description": "App Store missions for coding agents, powered by MetaRun: finish releases, reprice worldwide, localize listings, work the review inbox, and audit ASO — with Apple keys held server-side and every write preview-gated."
+    }
+  ]
+}
