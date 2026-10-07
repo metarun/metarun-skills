@@ -1,5 +1,6 @@
 {
   "name": "metarun-skills",
+  "displayName": "MetaRun",
   "version": "0.2.0",
   "description": "App Store missions for coding agents, plus MetaRun's hosted MCP server: release handoff, worldwide pricing, listing localization, review inbox, ASO audit, store media. Sign in with your browser; Apple keys never touch the machine, every write previews before it applies.",
   "author": {
@@ -7,6 +8,10 @@
     "url": "https://metarun.dev"
   },
   "homepage": "https://metarun.dev/agents",
+  "documentationUrl": "https://metarun.dev/agents",
+  "supportUrl": "https://metarun.dev/support",
+  "privacyPolicyUrl": "https://metarun.dev/privacy",
+  "termsOfServiceUrl": "https://metarun.dev/terms",
   "repository": "https://github.com/metarun/metarun-skills",
   "license": "MIT",
   "keywords": [
@@ -17,6 +22,5 @@
     "aso",
     "pricing",
     "release"
-  ],
-  "privacyPolicyUrl": "https://metarun.dev/privacy"
+  ]
 }
