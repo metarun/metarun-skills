@@ -1,0 +1,16 @@
+{
+  "name": "metarun",
+  "displayName": "MetaRun",
+  "version": "0.2.0",
+  "description": "Run App Store Connect from your agent: releases, pricing in 175 storefronts, listing localization, screenshots, reviews and ASO. Hosted MCP server with browser sign-in; Apple keys stay server-side and every write previews before it applies.",
+  "author": {
+    "name": "MetaRun"
+  },
+  "logo": "./assets/metarun-logo-256.png",
+  "homepage": "https://metarun.dev/cursor",
+  "repository": "https://github.com/metarun/metarun-skills",
+  "license": "MIT",
+  "keywords": ["app-store-connect", "ios", "mcp", "app-store", "aso", "pricing", "release"],
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json"
+}

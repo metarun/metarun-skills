@@ -1,0 +1,14 @@
+{
+  "name": "metarun",
+  "version": "0.2.0",
+  "description": "Run App Store Connect from Gemini CLI: releases, pricing in 175 storefronts, listing localization, screenshots, reviews and ASO, through MetaRun's hosted MCP server.",
+  "contextFileName": "GEMINI.md",
+  "mcpServers": {
+    "metarun": {
+      "httpUrl": "https://metarun.dev/api/mcp",
+      "oauth": {
+        "enabled": true
+      }
+    }
+  }
+}

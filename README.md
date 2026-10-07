@@ -1,8 +1,8 @@
 # MetaRun skills
 
 App Store missions for coding agents. Each skill teaches your agent a
-complete workflow over [MetaRun](https://metarun.dev)'s hosted tool server —
-the same 244-tool registry that powers its dashboard, AI operator, MCP
+complete workflow over [MetaRun](https://metarun.dev)'s hosted tool server:
+the same 300-tool registry that powers its dashboard, AI operator, MCP
 server, and CLI.
 
 The part that makes these different from other App Store automation: **your
@@ -15,13 +15,18 @@ history and mostly one-tap revertible.
 
 | Skill | The mission |
 | --- | --- |
-| `release-handoff` | The build is uploaded (fastlane, asc, Xcode Cloud) → attach it, clear compliance, sweep readiness, fix blockers, submit for review |
+| `release-handoff` | The build is uploaded (fastlane, asc, Xcode Cloud) → attach it, clear compliance, sweep readiness, fix blockers, submit for review; and after a rejection, read App Review's verdict, fix, resubmit |
 | `worldwide-pricing` | One base price → 175 defensible local prices via PPP/Big Mac/Spotify indexes, staged and confirmed |
 | `localize-listing` | The agent translates, MetaRun stages: name, subtitle, description, keywords, What's New, per locale |
 | `review-inbox` | Triage reviews, draft public replies (approved one by one), mine complaint/praise themes and keyword candidates |
 | `aso-audit` | Keyword ranks, metadata lint, rival diffs, Apple's measured search analytics, and answer-engine visibility |
+| `store-media` | Screenshots, app preview videos and creative assets through Apple's Asset Library: upload once, place on the listing, custom product pages, events or tests, order, verify (iPhone Duo included) |
 
 ## Install
+
+This repo is one plug-in for several agents: the skills plus MetaRun's
+hosted MCP server (`https://metarun.dev/api/mcp`). On first use the agent
+opens MetaRun in your browser to sign in; nothing to paste.
 
 Claude Code (plugin marketplace):
 
@@ -30,23 +35,40 @@ claude plugin marketplace add metarun/metarun-skills
 claude plugin install metarun-skills@metarun
 ```
 
-Agent-agnostic (skills installer):
+Then run `/mcp` in Claude Code and choose metarun to sign in.
+
+Xcode 27 (agent plug-in): Settings, Intelligence, Plug-ins, Add Plug-in, Add
+from URL, then paste `https://github.com/metarun/metarun-skills` and click
+Sign in next to MetaRun. One-click: `xcode://agent-plugin-clone?repo=https%3A%2F%2Fgithub.com%2Fmetarun%2Fmetarun-skills`
+
+Cursor: install from the repo URL (`.cursor-plugin/plugin.json`).
+
+Gemini CLI (extension):
+
+```bash
+gemini extensions install https://github.com/metarun/metarun-skills
+```
+
+Any skills-capable agent (skills only, no server):
 
 ```bash
 npx skills add metarun/metarun-skills
 ```
 
+Setup guides for each agent: https://metarun.dev/agents
+
 ## Setup
 
-The skills drive MetaRun's tools, so you need an account with your App Store
-Connect key connected, and a personal access token (Settings → MCP):
+You need a MetaRun account with your App Store Connect key connected (Pro,
+Studio, or the 14-day trial). Agents sign in through the browser. For scripts
+and CI, use a personal access token instead (Settings, MCP):
 
 ```bash
 npx metarun login
 ```
 
-Or wire the MCP server directly: `claude mcp add metarun
-https://metarun.dev/api/mcp -t http -H "Authorization: Bearer <token>"`.
+Or wire the server with a token: `claude mcp add --transport http metarun
+https://metarun.dev/api/mcp --header "Authorization: Bearer <token>"`.
 
 ## Design rules these skills follow
 

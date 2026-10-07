@@ -38,6 +38,9 @@ tone, keep character budgets, and never machine-gloss idioms.
 
 - `apple_list_app_metadata` -> both surfaces in every current locale.
 - `apple_list_version_localizations` -> the editable version's copy.
+- `apple_get_listing_coverage` -> the same picture as flags instead of copy:
+  filled/empty per language, plus `gaps` (field -> the languages missing it).
+  Use it to scope the job before writing anything.
 - Adding a language? `apple_list_supported_locales` names the valid codes.
   Creating an app-info localization REQUIRES the store name in the payload;
   a version localization needs only the locale.
@@ -68,9 +71,13 @@ tone, keep character budgets, and never machine-gloss idioms.
 
 ### 4. Verify
 
-Re-read `apple_list_version_localizations` and confirm every locale carries
-what the user approved. Report the languages touched and remind them it is
-all in change history, revertible per change.
+`apple_get_listing_coverage` is the check, not your own transcript: a
+preview can be blocked, an apply can fail, a locale can be missed, and a
+mission that reports itself complete with three languages empty is worse
+than one that stops and says so. Read it back, and if `gaps` still names a
+field the user asked for, stage the fixes now rather than announcing
+completion. Then report the languages touched and remind them it is all in
+change history, revertible per change.
 
 ## Beyond this mission
 

@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "metarun": {
+      "type": "http",
+      "url": "https://metarun.dev/api/mcp"
+    }
+  }
+}
