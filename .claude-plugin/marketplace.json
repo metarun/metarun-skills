@@ -4,6 +4,9 @@
     "name": "MetaRun",
     "url": "https://metarun.dev"
   },
+  "metadata": {
+    "description": "MetaRun for coding agents: App Store Connect missions plus MetaRun's hosted MCP server, with browser sign-in and preview-gated writes."
+  },
   "plugins": [
     {
       "name": "metarun-skills",
