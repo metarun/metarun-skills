@@ -70,6 +70,23 @@ npx metarun login
 Or wire the server with a token: `claude mcp add --transport http metarun
 https://metarun.dev/api/mcp --header "Authorization: Bearer <token>"`.
 
+## What runs, and where data goes
+
+- **MetaRun's MCP server** (`https://metarun.dev/api/mcp`, declared in
+  `.mcp.json`): every tool call goes there. Agents sign in with OAuth; your
+  App Store Connect key stays envelope-encrypted on MetaRun's servers, which
+  call Apple's App Store Connect API on your behalf.
+- **The `metarun` CLI** (`npx metarun`, the npm package `metarun`): skills
+  use it when the MCP server isn't connected. It calls the same server with a
+  personal access token from `npx metarun login` or `METARUN_TOKEN`.
+- **Local image uploads**: when a screenshot exists only on your machine,
+  `studio_create_upload` returns a short-lived signed URL on MetaRun's file
+  storage (Supabase Storage) and a `curl` command that PUTs the file there;
+  `studio_finalize_upload` then hands back an https URL for the upload tool.
+- Nothing else: the skills send no data to any other service. Applied
+  changes are kept in your MetaRun change history for your plan's retention
+  period. Privacy policy: https://metarun.dev/privacy
+
 ## Design rules these skills follow
 
 - **Schemas are never embedded.** Skills name tools; parameters are fetched
