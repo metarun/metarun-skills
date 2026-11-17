@@ -102,3 +102,12 @@ Classic screenshot sets (`apple_list_screenshots` and its upload/delete/
 reorder pairs) still work for plain screenshots; the library is required
 for app preview videos, creative assets, and iPhone Duo. Discover the rest
 with `npx metarun tools <filter>`.
+
+A MetaRun Screenshot Studio project goes into classic sets in one step per
+batch of languages: `apple_preview_publish_studio_screenshots` (bundle id,
+project id from `studio_list_projects`, the locales, optionally the slides)
+-> `apple_apply_publish_studio_screenshots`. The server renders every slide
+and uploads it in slide order; by default each set is replaced. One call
+takes at most 40 screenshots, and an apply that runs out of time lists the
+languages it did not reach as `remainingLocales`: preview those next. iPhone
+Duo projects are refused there and go through the library as above.
